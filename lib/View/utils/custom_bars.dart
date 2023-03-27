@@ -39,7 +39,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: screenHeight! * 0.032,
-            // fontFamily: 'Avenir',
+            fontFamily: 'Avenir',
           ),
         ),
       ),

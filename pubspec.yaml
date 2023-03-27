@@ -20,3 +20,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+fonts:
+  - family: Avenir
+    fonts:
+      - asset: resources/fonts/avenir_lt_std_45_book.ttf

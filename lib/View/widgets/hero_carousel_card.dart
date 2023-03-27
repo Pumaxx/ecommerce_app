@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import '../models/category_model.dart';
 
@@ -45,7 +46,7 @@ class HeroCarouselCard extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: screenHeight * 0.032,
-                      // fontFamily: 'Avenir',
+                      fontFamily: 'Avenir',
                     ),
                   ),
                 ),
