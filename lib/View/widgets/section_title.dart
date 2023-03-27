@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 
 class SectionTitile extends StatelessWidget {
   final String title;
+  final double screenHeight;
+  final double screenWidth;
   const SectionTitile({
     super.key,
     required this.screenHeight,
+    required this.screenWidth,
     required this.title,
   });
-
-  final double screenHeight;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth / 20),
       child: Align(
         alignment: Alignment.topLeft,
         child: AutoSizeText(

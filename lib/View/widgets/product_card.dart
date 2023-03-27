@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+  final double widthFactor;
   const ProductCard({
     super.key,
     required this.screenWidth,
     required this.screenHeight,
     required this.product,
+    this.widthFactor = 2.5,
   });
 
   final double screenWidth;
@@ -19,21 +21,21 @@ class ProductCard extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          width: screenWidth / 2.5,
-          height: 150,
+          width: screenWidth / widthFactor,
+          height: screenHeight / 5.5,
           child: Image.network(product.imageUrl, fit: BoxFit.cover),
         ),
         Positioned(
-          top: 65,
-          left: 5,
+          top: screenHeight / 13,
+          left: (screenWidth / 2.5) / 25,
           child: Container(
-              width: screenWidth / 2.5 - 10,
-              height: 70,
+              width: screenWidth / widthFactor - 10,
+              height: screenHeight / 10.5,
               decoration: BoxDecoration(
                 color: const Color(0xFF1D2671).withAlpha(130),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(screenHeight / 100),
                 child: Row(
                   children: [
                     Expanded(
