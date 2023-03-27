@@ -6,6 +6,8 @@ import 'package:ecommerce_app/View/Screens/wishlist_screen.dart';
 import 'package:ecommerce_app/View/models/category_model.dart';
 import 'package:flutter/material.dart';
 
+import '../models/prouct_model.dart';
+
 class AppRouter {
   static Route onGenereteRoute(RouteSettings settings) {
     debugPrint('This is route: ${settings.name}');
@@ -16,7 +18,7 @@ class AppRouter {
       case CarteScreen.routeName:
         return CarteScreen.route();
       case ProductScreen.routeName:
-        return ProductScreen.route();
+        return ProductScreen.route(product: settings.arguments as Product);
       case WisthlistScreen.routeName:
         return WisthlistScreen.route();
       case CatalogScreen.routeName:

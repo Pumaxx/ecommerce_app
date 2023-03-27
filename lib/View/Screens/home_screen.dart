@@ -36,45 +36,43 @@ class HomeScreen extends StatelessWidget {
         ),
         bottomNavigationBar: CustomNavBar(screenHeight: screenHeight),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  child: CarouselSlider(
-                    options: CarouselOptions(
-                      aspectRatio: 1.5,
-                      viewportFraction: 0.9,
-                      enlargeCenterPage: true,
-                      enlargeStrategy: CenterPageEnlargeStrategy.height,
-                    ),
-                    items: Category.categories
-                        .map((category) => HeroCarouselCard(category: category))
-                        .toList(),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Column(
+              children: [
+                CarouselSlider(
+                  options: CarouselOptions(
+                    aspectRatio: 1.5,
+                    viewportFraction: 0.9,
+                    enlargeCenterPage: true,
+                    enlargeStrategy: CenterPageEnlargeStrategy.height,
                   ),
+                  items: Category.categories
+                      .map((category) => HeroCarouselCard(category: category))
+                      .toList(),
                 ),
-              ),
-              SectionTitile(
-                  screenHeight: screenHeight,
-                  screenWidth: screenWidth,
-                  title: 'RCOMMENDED'),
-              ProductCarousel(
-                  screenWidth: screenWidth,
-                  screenHeight: screenHeight,
-                  products: Product.products
-                      .where((product) => product.isRecommended)
-                      .toList()),
-              SectionTitile(
-                  screenHeight: screenHeight,
-                  screenWidth: screenWidth,
-                  title: 'MOST POPULAR'),
-              ProductCarousel(
-                  screenWidth: screenWidth,
-                  screenHeight: screenHeight,
-                  products: Product.products
-                      .where((product) => product.isPopular)
-                      .toList()),
-            ],
+                SectionTitile(
+                    screenHeight: screenHeight,
+                    screenWidth: screenWidth,
+                    title: 'RCOMMENDED'),
+                ProductCarousel(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    products: Product.products
+                        .where((product) => product.isRecommended)
+                        .toList()),
+                SectionTitile(
+                    screenHeight: screenHeight,
+                    screenWidth: screenWidth,
+                    title: 'MOST POPULAR'),
+                ProductCarousel(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    products: Product.products
+                        .where((product) => product.isPopular)
+                        .toList()),
+              ],
+            ),
           ),
         ),
       ),
