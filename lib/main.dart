@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/View/utils/app_router.dart';
+import 'package:ecommerce_app/blocs/wishlist/wishlist_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'View/Screens/home_screen.dart';
 
 void main() {
@@ -16,15 +18,20 @@ class MainApp extends StatelessWidget {
         statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark));
 
-    return MaterialApp(
-      title: 'eCommerce App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => WishlistBloc()..add(StartWishlist())),
+      ],
+      child: MaterialApp(
+        title: 'eCommerce App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.grey,
+        ),
+        onGenerateRoute: AppRouter.onGenereteRoute,
+        initialRoute: HomeScreen.routeName,
+        home: const HomeScreen(),
       ),
-      onGenerateRoute: AppRouter.onGenereteRoute,
-      initialRoute: HomeScreen.routeName,
-      home: const HomeScreen(),
     );
   }
 }

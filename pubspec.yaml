@@ -8,10 +8,12 @@ environment:
 
 dependencies:
   auto_size_text: ^3.0.0
+  bloc: ^8.1.1
   carousel_slider: ^4.2.1
   equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:
