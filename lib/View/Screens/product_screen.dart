@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_app/View/models/prouct_model.dart';
 import 'package:ecommerce_app/View/utils/custom_bars.dart';
 import 'package:ecommerce_app/View/widgets/hero_carousel_card.dart';
+import 'package:ecommerce_app/blocs/cart/cart_bloc.dart';
 import 'package:ecommerce_app/blocs/wishlist/wishlist_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -74,7 +75,9 @@ class ProductScreen extends StatelessWidget {
                                 .add(AddWishlistProduct(product));
 
                             const snackBar = SnackBar(
-                                content: Text('Added to your Wishlist'));
+                              content: Text('Added to your Wishlist'),
+                              duration: Duration(seconds: 1),
+                            );
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar);
                           },
@@ -85,19 +88,28 @@ class ProductScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white),
-                      child: AutoSizeText(
-                        'ADD TO CARD',
-                        style: TextStyle(
-                          color: const Color(0xFF1D2671),
-                          fontWeight: FontWeight.bold,
-                          fontSize: screenHeight * 0.018,
-                          fontFamily: 'Avenir',
-                        ),
-                      ),
+                    BlocBuilder<CartBloc, CartState>(
+                      builder: (context, state) {
+                        return ElevatedButton(
+                          onPressed: () {
+                            context
+                                .read<CartBloc>()
+                                .add(CartProductAdd(product));
+                            Navigator.pushNamed(context, '/cart');
+                          },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white),
+                          child: AutoSizeText(
+                            'ADD TO CARD',
+                            style: TextStyle(
+                              color: const Color(0xFF1D2671),
+                              fontWeight: FontWeight.bold,
+                              fontSize: screenHeight * 0.018,
+                              fontFamily: 'Avenir',
+                            ),
+                          ),
+                        );
+                      },
                     )
                   ],
                 ),

@@ -15,9 +15,6 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
     on<RemoveWishlistProduct>(_onRemoveWishlistProduct);
   }
 
-  //yield -> emit
-  //final state = this.state
-
   void _onStartWishlist(
     StartWishlist event,
     Emitter<WishlistState> emit,
