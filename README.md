@@ -6,7 +6,7 @@
 
 # Program description:
 
-This application is an example of a mobile eCommerce store with BLoC package for state management. It currently consists of:
+This application is an example of a mobile eCommerce store with BLoC package for state management abd Firebase Firestore database. It currently consists of:
 
 - Home Sceen with three carousels for product categories, recommended products and most popular products,
 - Category Sceen with a grid displaying all products in a category
