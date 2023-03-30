@@ -6,6 +6,19 @@ class Cart extends Equatable {
   final double freeDeliveryTarget = 20.0;
   final List<Product> products;
 
+  Map productsQuantity(products) {
+    var quantity = Map();
+    products.forEach((product) {
+      if (!quantity.containsKey(product)) {
+        quantity[product] = 1;
+      } else {
+        quantity[product] += 1;
+      }
+    });
+
+    return quantity;
+  }
+
   double get subtotal =>
       products.fold(0, (total, currentPrice) => total += currentPrice.price);
 

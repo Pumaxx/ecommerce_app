@@ -126,10 +126,20 @@ class CarteScreen extends StatelessWidget {
                           SizedBox(
                             height: screenHeight * 0.56,
                             child: ListView.builder(
-                                itemCount: state.cart.products.length,
+                                itemCount: state.cart
+                                    .productsQuantity(state.cart.products)
+                                    .keys
+                                    .length,
                                 itemBuilder: (context, index) {
                                   return CardProductCard(
-                                    product: state.cart.products[index],
+                                    product: state.cart
+                                        .productsQuantity(state.cart.products)
+                                        .keys
+                                        .elementAt(index),
+                                    quantity: state.cart
+                                        .productsQuantity(state.cart.products)
+                                        .values
+                                        .elementAt(index),
                                     screenHeight: screenHeight,
                                     screenWidth: screenWidth,
                                   );

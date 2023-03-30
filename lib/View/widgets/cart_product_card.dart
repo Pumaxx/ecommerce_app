@@ -6,12 +6,14 @@ import '../models/prouct_model.dart';
 
 class CardProductCard extends StatelessWidget {
   final Product product;
+  final int quantity;
   final double screenHeight;
   final double screenWidth;
 
   const CardProductCard({
     Key? key,
     required this.product,
+    required this.quantity,
     required this.screenHeight,
     required this.screenWidth,
   }) : super(key: key);
@@ -66,7 +68,7 @@ class CardProductCard extends StatelessWidget {
                       },
                       icon: const Icon(Icons.remove_circle)),
                   AutoSizeText(
-                    '1',
+                    '$quantity',
                     style: TextStyle(
                       color: Colors.grey[800],
                       fontWeight: FontWeight.bold,
