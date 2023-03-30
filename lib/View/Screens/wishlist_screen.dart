@@ -1,9 +1,7 @@
 import 'package:ecommerce_app/View/utils/custom_bars.dart';
-import 'package:ecommerce_app/blocs/wishlist/wishlist_bloc.dart';
+import 'package:ecommerce_app/ViewModel/wishlist/wishlist_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../models/prouct_model.dart';
 import '../widgets/product_card.dart';
 
 class WisthlistScreen extends StatelessWidget {

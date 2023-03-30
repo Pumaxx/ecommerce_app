@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce_app/View/models/category_model.dart';
 import 'package:ecommerce_app/View/utils/custom_bars.dart';
+import 'package:ecommerce_app/ViewModel/category/category_bloc.dart';
+import 'package:ecommerce_app/ViewModel/products/products_bloc.dart';
 import 'package:flutter/material.dart';
-import '../models/prouct_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../Model/models/prouct_model.dart';
 import '../widgets/hero_carousel_card.dart';
 import '../widgets/section_title.dart';
 import '../widgets/product_carousel.dart';
@@ -40,37 +42,72 @@ class HomeScreen extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Column(
               children: [
-                CarouselSlider(
-                  options: CarouselOptions(
-                    aspectRatio: 1.5,
-                    viewportFraction: 0.9,
-                    enlargeCenterPage: true,
-                    enlargeStrategy: CenterPageEnlargeStrategy.height,
-                  ),
-                  items: Category.categories
-                      .map((category) => HeroCarouselCard(category: category))
-                      .toList(),
+                BlocBuilder<CategoryBloc, CategoryState>(
+                  builder: (context, state) {
+                    if (state is CategoryLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    if (state is CategoryLoaded) {
+                      return CarouselSlider(
+                        options: CarouselOptions(
+                          aspectRatio: 1.5,
+                          viewportFraction: 0.9,
+                          enlargeCenterPage: true,
+                          enlargeStrategy: CenterPageEnlargeStrategy.height,
+                        ),
+                        items: state.categories
+                            .map((category) =>
+                                HeroCarouselCard(category: category))
+                            .toList(),
+                      );
+                    }
+                    return const Text('Something went wrong.');
+                  },
                 ),
                 SectionTitile(
                     screenHeight: screenHeight,
                     screenWidth: screenWidth,
                     title: 'RCOMMENDED'),
-                ProductCarousel(
-                    screenWidth: screenWidth,
-                    screenHeight: screenHeight,
-                    products: Product.products
-                        .where((product) => product.isRecommended)
-                        .toList()),
+                BlocBuilder<ProductsBloc, ProductsState>(
+                  builder: (context, state) {
+                    if (state is ProductsLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    if (state is ProductsLoaded) {
+                      return ProductCarousel(
+                          screenWidth: screenWidth,
+                          screenHeight: screenHeight,
+                          products: state.products
+                              .where((product) => product.isRecommended)
+                              .toList());
+                    }
+                    return const Text('Something went wrong.');
+                  },
+                ),
                 SectionTitile(
                     screenHeight: screenHeight,
                     screenWidth: screenWidth,
                     title: 'MOST POPULAR'),
-                ProductCarousel(
-                    screenWidth: screenWidth,
-                    screenHeight: screenHeight,
-                    products: Product.products
-                        .where((product) => product.isPopular)
-                        .toList()),
+                BlocBuilder<ProductsBloc, ProductsState>(
+                  builder: (context, state) {
+                    if (state is ProductsLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    if (state is ProductsLoaded) {
+                      return ProductCarousel(
+                          screenWidth: screenWidth,
+                          screenHeight: screenHeight,
+                          products: state.products
+                              .where((product) => product.isPopular)
+                              .toList());
+                    }
+                    return const Text('Something went wrong.');
+                  },
+                ),
               ],
             ),
           ),

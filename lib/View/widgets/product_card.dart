@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:ecommerce_app/View/models/prouct_model.dart';
-import 'package:ecommerce_app/View/models/wishlist_model.dart';
-import 'package:ecommerce_app/blocs/cart/cart_bloc.dart';
-import 'package:ecommerce_app/blocs/wishlist/wishlist_bloc.dart';
+import 'package:ecommerce_app/Model/models/prouct_model.dart';
+import 'package:ecommerce_app/ViewModel/wishlist/wishlist_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../ViewModel/cart/cart_bloc.dart';
 
 class ProductCard extends StatelessWidget {
   final double screenWidth;

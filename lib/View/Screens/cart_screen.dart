@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommerce_app/View/utils/custom_bars.dart';
-import 'package:ecommerce_app/blocs/cart/cart_bloc.dart';
+import 'package:ecommerce_app/ViewModel/cart/cart_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../models/cart_model.dart';
+import '../../Model/models/cart_model.dart';
 import '../widgets/cart_product_card.dart';
 
 class CarteScreen extends StatelessWidget {

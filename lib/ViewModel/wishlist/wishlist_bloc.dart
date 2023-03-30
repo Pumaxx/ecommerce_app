@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ecommerce_app/View/models/prouct_model.dart';
-import 'package:ecommerce_app/View/models/wishlist_model.dart';
+import 'package:ecommerce_app/Model/models/prouct_model.dart';
+import 'package:ecommerce_app/Model/models/wishlist_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'wishlist_event.dart';

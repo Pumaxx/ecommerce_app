@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/View/models/prouct_model.dart';
+import 'package:ecommerce_app/Model/models/prouct_model.dart';
 import 'package:flutter/material.dart';
-import '../models/category_model.dart';
+import '../../Model/models/category_model.dart';
 
 class HeroCarouselCard extends StatelessWidget {
   final Category? category;

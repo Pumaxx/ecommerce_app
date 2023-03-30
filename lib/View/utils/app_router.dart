@@ -3,10 +3,10 @@ import 'package:ecommerce_app/View/Screens/catalog_screen.dart';
 import 'package:ecommerce_app/View/Screens/home_screen.dart';
 import 'package:ecommerce_app/View/Screens/product_screen.dart';
 import 'package:ecommerce_app/View/Screens/wishlist_screen.dart';
-import 'package:ecommerce_app/View/models/category_model.dart';
+import 'package:ecommerce_app/Model/models/category_model.dart';
 import 'package:flutter/material.dart';
 
-import '../models/prouct_model.dart';
+import '../../Model/models/prouct_model.dart';
 
 class AppRouter {
   static Route onGenereteRoute(RouteSettings settings) {
